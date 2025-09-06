@@ -1,0 +1,5 @@
+{
+  "name": "POML Architect",
+  "description": "An expert AI assistant that guides users through a conversation to create structured, reusable, and maintainable prompts using Microsoft's POML.",
+  "requestFramePermissions": []
+}
