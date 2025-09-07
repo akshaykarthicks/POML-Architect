@@ -33,24 +33,25 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }
     };
 
     return (
-        <div className="flex items-end gap-2 p-2 bg-gray-800 border border-gray-700 rounded-lg">
+        <div className="chat-input-wrapper">
             <textarea
                 ref={textareaRef}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Describe the task for your AI..."
+                placeholder="Type your message here..."
                 rows={1}
-                className="w-full bg-transparent resize-none focus:outline-none p-2 max-h-48"
+                className="chat-input"
                 disabled={isLoading}
+                style={{ minHeight: '24px' }}
             />
             <button
                 onClick={handleSubmit}
                 disabled={isLoading || !text.trim()}
-                className="p-2 rounded-md bg-indigo-600 text-white disabled:bg-gray-600 disabled:cursor-not-allowed hover:bg-indigo-500 transition-colors flex-shrink-0"
+                className="chat-send-button"
                 aria-label="Send message"
             >
-                <SendIcon className="w-5 h-5" />
+                <SendIcon style={{ width: '20px', height: '20px' }} />
             </button>
         </div>
     );

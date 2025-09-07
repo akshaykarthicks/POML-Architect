@@ -77,35 +77,40 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-gray-900 text-white font-sans">
-            <header className="p-4 border-b border-gray-700 shadow-lg flex-shrink-0 flex items-center justify-center relative">
+        <div className="chat-container">
+            <header className="chat-header">
                 <a
                     href="https://github.com/akshaykarthicks"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    className="github-icon"
                     aria-label="Akshay Karthick's GitHub Profile"
                 >
-                    <GithubIcon className="w-6 h-6" />
+                    <GithubIcon style={{ width: '20px', height: '20px' }} />
                 </a>
 
-                <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-200">POML Architect</h1>
-                    <p className="text-sm text-gray-400">Your Conversational Prompt Engineering Assistant</p>
+                <div style={{ textAlign: 'center' }}>
+                    <h1 className="chat-title">POML Architect</h1>
+                    <p className="chat-subtitle">Your Conversational Prompt Engineering Assistant</p>
                 </div>
             </header>
 
-            <main className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
-                <div className="w-full max-w-4xl mx-auto">
+            <main className="chat-main">
+                <div className="chat-messages">
                     {messages.map((msg) => (
                         <ChatMessage key={msg.id} message={msg} />
                     ))}
-                     {isLoading && (
-                        <div className="flex justify-start items-center ml-12">
-                            <div className="animate-pulse flex space-x-1">
-                                <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
-                                <div className="w-2 h-2 bg-indigo-400 rounded-full animation-delay-200"></div>
-                                <div className="w-2 h-2 bg-indigo-400 rounded-full animation-delay-400"></div>
+                    {isLoading && messages[messages.length - 1]?.text === '' && (
+                        <div className="message">
+                            <div className="message-avatar ai">
+                                <div className="loading-dots">
+                                    <div className="loading-dot"></div>
+                                    <div className="loading-dot"></div>
+                                    <div className="loading-dot"></div>
+                                </div>
+                            </div>
+                            <div className="message-content ai">
+                                <div style={{ color: '#9ca3af', fontSize: '0.875rem' }}>AI is thinking...</div>
                             </div>
                         </div>
                     )}
@@ -113,11 +118,12 @@ const App: React.FC = () => {
                 </div>
             </main>
 
-            <footer className="p-4 border-t border-gray-700 flex-shrink-0">
-                <div className="w-full max-w-4xl mx-auto">
+            <footer className="chat-footer">
+                <div className="chat-input-container">
                     {error && (
-                        <div className="mb-4 p-3 rounded-lg bg-red-900/50 border border-red-500 text-red-300 text-center text-sm">
-                            {error}
+                        <div className="error-message">
+                            <div className="error-title">Error</div>
+                            <div style={{ marginTop: '0.25rem' }}>{error}</div>
                         </div>
                     )}
                     <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />

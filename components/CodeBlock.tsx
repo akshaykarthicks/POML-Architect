@@ -17,27 +17,27 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
     };
 
     return (
-        <div className="bg-gray-900/70 rounded-lg my-4 relative border border-gray-700">
-            <div className="flex justify-between items-center px-4 py-2 bg-gray-800/50 rounded-t-lg border-b border-gray-700">
-                <span className="text-gray-400 text-sm font-semibold">POML Template</span>
+        <div className="code-block">
+            <div className="code-header">
+                <span className="code-title">POML Template</span>
                 <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition-colors"
+                    className="code-copy-button"
                 >
                     {isCopied ? (
                         <>
-                            <CheckIcon className="w-4 h-4 text-green-400" />
-                            Copied!
+                            <CheckIcon style={{ width: '12px', height: '12px' }} />
+                            <span style={{ color: '#10b981' }}>Copied!</span>
                         </>
                     ) : (
                         <>
-                            <CopyIcon className="w-4 h-4" />
+                            <CopyIcon style={{ width: '12px', height: '12px' }} />
                             Copy
                         </>
                     )}
                 </button>
             </div>
-            <pre className="p-4 text-sm overflow-x-auto text-gray-300">
+            <pre className="code-content">
                 <code>{code}</code>
             </pre>
         </div>
