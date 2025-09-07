@@ -1,0 +1,18 @@
+"use strict";(()=>{var e={};e.id=170,e.ids=[170],e.modules={145:e=>{e.exports=require("next/dist/compiled/next-server/pages-api.runtime.prod.js")},5613:e=>{e.exports=import("@google/genai")},6249:(e,t)=>{Object.defineProperty(t,"l",{enumerable:!0,get:function(){return function e(t,r){return r in t?t[r]:"then"in t&&"function"==typeof t.then?t.then(t=>e(t,r)):"function"==typeof t&&"default"===r?t:void 0}}})},8653:(e,t,r)=>{r.a(e,async(e,a)=>{try{r.r(t),r.d(t,{config:()=>u,default:()=>c,routeModule:()=>d});var o=r(1802),n=r(7153),s=r(6249),i=r(895),l=e([i]);i=(l.then?(await l)():l)[0];let c=(0,s.l)(i,"default"),u=(0,s.l)(i,"config"),d=new o.PagesAPIRouteModule({definition:{kind:n.x.PAGES_API,page:"/api/chat",pathname:"/api/chat",bundlePath:"",filename:""},userland:i});a()}catch(e){a(e)}})},4795:(e,t,r)=>{r.d(t,{D:()=>a});let a=`You are "POML Architect," an expert AI assistant specializing in creating structured and effective prompts using Microsoft's POML (Prompt Orchestration Markup Language). Your sole purpose is to convert a user's abstract idea for a prompt into a syntactically correct and high-quality POML prompt.
+
+**Your Core Mandate:**
+You MUST follow this two-step process precisely.
+
+**Step 1: Understand the User's Goal**
+- Greet the user and ask them to describe the task they want their AI to perform.
+- Listen carefully to their description.
+
+**Step 2: Construct and Present the POML Prompt**
+- Directly from the user's description, create a complete and effective POML prompt.
+- You must intelligently infer the best system role and a user role filled with a concrete, high-quality example.
+- The root element MUST be \`<poml>\`.
+- The instructions for the AI's persona MUST go inside a \`<role name="system">\` tag.
+- The user's request MUST go inside a \`<role name="user">\` tag.
+- DO NOT use \`{{variable_name}}\` placeholders. Instead of a template, generate a fully-formed, specific example prompt that is ready to be used.
+- Present the final POML prompt inside a markdown code block (\`\`\`xml ... \`\`\`).
+- DO NOT provide an explanation after the code block. Just present the code.`},895:(e,t,r)=>{r.a(e,async(e,a)=>{try{r.r(t),r.d(t,{default:()=>l});var o=r(5613),n=r(4795),s=r(7556),i=e([o]);o=(i.then?(await i)():i)[0];let c=e=>e.map(e=>({role:e.role===s.u.AI?"model":"user",parts:[{text:e.text}]}));async function l(e,t){if("POST"!==e.method)return t.status(405).json({error:"Method Not Allowed"});let{message:r,history:a}=e.body;if(!process.env.API_KEY)return t.status(500).json({error:"API_KEY environment variable not set"});try{let e=new o.GoogleGenAI({apiKey:process.env.API_KEY}).chats.create({model:"gemini-2.5-flash",config:{systemInstruction:n.D},history:c(a)}),s=await e.sendMessageStream({message:r});for await(let e of(t.setHeader("Content-Type","text/plain; charset=utf-8"),t.setHeader("Transfer-Encoding","chunked"),s))t.write(e.text);t.end()}catch(e){console.error("Gemini API Error:",e),t.status(500).json({error:"Failed to get response from AI"})}}a()}catch(e){a(e)}})},7556:(e,t,r)=>{var a;r.d(t,{u:()=>a}),function(e){e.USER="user",e.AI="ai"}(a||(a={}))},7153:(e,t)=>{var r;Object.defineProperty(t,"x",{enumerable:!0,get:function(){return r}}),function(e){e.PAGES="PAGES",e.PAGES_API="PAGES_API",e.APP_PAGE="APP_PAGE",e.APP_ROUTE="APP_ROUTE"}(r||(r={}))},1802:(e,t,r)=>{e.exports=r(145)}};var t=require("../../webpack-api-runtime.js");t.C(e);var r=t(t.s=8653);module.exports=r})();
