@@ -97,10 +97,10 @@ const HomePage: React.FC = () => {
                         className="github-icon"
                         aria-label="Akshay Karthick's GitHub Profile"
                     >
-                        <GithubIcon style={{ width: '20px', height: '20px' }} />
+                        <GithubIcon className="github-icon-size" />
                     </a>
 
-                    <div style={{ textAlign: 'center' }}>
+                    <div className="header-content">
                         <h1 className="chat-title">POML Architect</h1>
                         <p className="chat-subtitle">Your Conversational Prompt Engineering Assistant</p>
                     </div>
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="message-content ai">
-                                    <div style={{ color: '#9ca3af', fontSize: '0.875rem' }}>AI is thinking...</div>
+                                    <div className="thinking-text">AI is thinking...</div>
                                 </div>
                             </div>
                         )}
@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
                         {error && (
                             <div className="error-message">
                                 <div className="error-title">Error</div>
-                                <div style={{ marginTop: '0.25rem' }}>{error}</div>
+                                <div className="error-details">{error}</div>
                             </div>
                         )}
                         <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />

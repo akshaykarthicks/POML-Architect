@@ -35,9 +35,9 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
         <div className={`message ${isAi ? '' : 'user'}`}>
             <div className={`message-avatar ${isAi ? 'ai' : 'user'}`}>
                 {isAi ? (
-                    <AiIcon style={{ width: '16px', height: '16px' }} />
+                    <AiIcon className="message-icon-size" />
                 ) : (
-                    <UserIcon style={{ width: '16px', height: '16px' }} />
+                    <UserIcon className="message-icon-size" />
                 )}
             </div>
             

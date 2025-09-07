@@ -51,7 +51,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }
                 className="chat-send-button"
                 aria-label="Send message"
             >
-                <SendIcon style={{ width: '20px', height: '20px' }} />
+                <SendIcon className="send-icon-size" />
             </button>
         </div>
     );

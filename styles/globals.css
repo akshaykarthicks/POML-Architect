@@ -235,6 +235,43 @@ html, body {
     transform: translateY(-50%) scale(1.1);
 }
 
+.github-icon-size {
+    width: 20px;
+    height: 20px;
+}
+
+.send-icon-size {
+    width: 20px;
+    height: 20px;
+}
+
+.message-icon-size {
+    width: 16px;
+    height: 16px;
+}
+
+.code-icon-size {
+    width: 12px;
+    height: 12px;
+}
+
+.copied-text {
+    color: #10b981;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.thinking-text {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+.error-details {
+    margin-top: 0.25rem;
+}
+
 /* Error message */
 .error-message {
     margin-bottom: 1rem;

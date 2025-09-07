@@ -26,12 +26,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
                 >
                     {isCopied ? (
                         <>
-                            <CheckIcon style={{ width: '12px', height: '12px' }} />
-                            <span style={{ color: '#10b981' }}>Copied!</span>
+                            <CheckIcon className="code-icon-size" />
+                            <span className="copied-text">Copied!</span>
                         </>
                     ) : (
                         <>
-                            <CopyIcon style={{ width: '12px', height: '12px' }} />
+                            <CopyIcon className="code-icon-size" />
                             Copy
                         </>
                     )}
